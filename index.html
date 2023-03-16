@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculadora</title>
+    
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+    <label for="a">Ingrese el valor de a:</label>
+    <input type="number" id="a"><br><br>
+    <label for="b">Ingrese el valor de b:</label>
+    <input type="number" id="b"><br><br>
+    <label for="operacion">Seleccione la operación:</label>
+    <select id="operacion">
+      <option value="sum">Suma</option>
+      <option value="rest">Resta</option>
+      <option value="mult">Multiplicación</option>
+      <option value="div">División</option>
+    </select><br><br>
+    <button onclick="calcular()">Calcular</button><br><br>
+    <div id="resultado"></div>
+
+    <script>
+         function calcular() {
+    const a = parseFloat(document.getElementById("a").value);
+    const b = parseFloat(document.getElementById("b").value);
+    const operacion = document.getElementById("operacion").value;
+    const resultado = calculadora(operacion, a, b);
+    document.getElementById("resultado").innerHTML = resultado;
+    console.log("Funciona")
+  }
+
+  let calculadora = (operacion, a, b ) => {
+    if(Number.isInteger(a) && Number.isInteger(b)){
+       if(operacion === 'sum') {return a+b}
+       else if(operacion === 'rest') {return a-b}
+       else if(operacion === 'mult') {return a*b}
+       else if(operacion === 'div') {return a/b} 
+       else {return 'Ingrese una operación válida'}
+    } else{ console.log("Uno de los valores no es entero")
+return 'Uno de los valores no es entero'}
+  }
+    </script>
+    <script>
+        
+    </script>
+  </body>
+</html>
